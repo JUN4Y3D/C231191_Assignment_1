@@ -36,6 +36,11 @@ header{
     z-index: 100;
 }
 
+nav{
+    display: flex;
+    gap: 3rem;
+}
+
 nav a{
     font-size: 1.8rem;
     color: white;
@@ -51,22 +56,32 @@ nav a.active{
     border-bottom: 3px solid #df2929;
 }
 
-@media(max-width:995px){
+.menu-toggle{
+    display: none;
+}
+
+.menu-icon{
+    display: none;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media(max-width: 995px){
     nav{
-        position: absolute;
         display: none;
+        position: absolute;
         top: 0;
         right: 0;
-        width: 40%;
+        width: 60%;
         border-left: 3px solid #df2929;
         border-bottom: 3px solid #df2929;
         border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
+        padding: 1rem;
         background-color: #161616;
         border-top: 0.1rem solid rgba(0,0,0,0.1);
     }
 
-    nav.active{
+    .menu-toggle:checked + .menu-icon + nav{
         display: block;
     }
 
@@ -81,6 +96,10 @@ nav a.active{
         padding: 1rem;
         border-radius: 0.5rem;
         border-bottom: 0.5rem solid #b74b4b;
+    }
+    
+    .menu-icon{
+        display: block;
     }
 }
 
@@ -198,10 +217,11 @@ span{
     content: "";
     background-color: black;
     position: absolute;
-    width: calc(100% + 8px);
+    width: 3px;
+   /* width: calc(100% + 8px);*/
     height: 100%;
-    border-left: 3px solid black;
-    right: -8;
+    border-left: 1px solid black;
+    right: -8; 
     animation: cursor 0.6s infinite;
 }
 
@@ -210,7 +230,6 @@ span{
         border-left: 3px solid #b74b4b;
     }
 }
-
 @keyframes words{
     0%, 20%{
         content: "Web Developer";
@@ -234,6 +253,7 @@ span{
         gap: 4rem;
     }
 }
+
 
 @media(max-width:995px){
     .home{
